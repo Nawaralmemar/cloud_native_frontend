@@ -83,75 +83,111 @@ const SignupForm: React.FC = () => {
     };
 
     return (
-        <>
-            <article className="my-form-container col-4">
-                <h5>Sign Up</h5>
-                <StatusMessageParser statusMessage={statusMessage} />
-                <Form onSubmit={handleSubmit}>
-                    <Form.Group className="mb-3">
-                        <Form.Label htmlFor="firstname">First Name</Form.Label>
-                        <Form.Control
-                            id="firstname"
-                            type="text"
-                            value={firstname}
-                            onChange={(event) => {
-                                setFirstname(event.target.value);
-                            }}
-                        />
-                        <Form.Text className="text-muted">
-                            {firstnameError && <div className="text-danger">{firstnameError}</div>}
-                        </Form.Text>
-                    </Form.Group>
-
-                    <Form.Group className="mb-3">
-                        <Form.Label htmlFor="lastname">Last Name</Form.Label>
-                        <Form.Control
-                            id="lastname"
-                            type="text"
-                            value={lastname}
-                            onChange={(event) => {
-                                setLastname(event.target.value);
-                            }}
-                        />
-                        <Form.Text className="text-muted">
-                            {lastnameError && <div className="text-danger">{lastnameError}</div>}
-                        </Form.Text>
-                    </Form.Group>
-
-                    <Form.Group className="mb-3">
-                        <Form.Label htmlFor="username">Username</Form.Label>
-                        <Form.Control
-                            id="username"
-                            type="text"
-                            value={username}
-                            onChange={(event) => {
-                                setUsername(event.target.value);
-                            }}
-                        />
-                        <Form.Text className="text-muted">
-                            {usernameError && <div className="text-danger">{usernameError}</div>}
-                        </Form.Text>
-                    </Form.Group>
-
-                    <Form.Group className="mb-3">
-                        <Form.Label htmlFor="password">Password</Form.Label>
-                        <Form.Control
-                            id="password"
-                            type="password"
-                            onChange={(event) => {
-                                setPassword(event.target.value);
-                            }}
-                        />
-                        <Form.Text className="text-muted">
-                            {passwordError && <div className="text-danger">{passwordError}</div>}
-                        </Form.Text>
-                    </Form.Group>
-                    <Button variant="outline-primary" type="submit">
-                        Sign Up
-                    </Button>
-                </Form>
-            </article>
-        </>
+        <div className="hero bg-base-200 rounded-box p-2">
+            <StatusMessageParser statusMessage={statusMessage} />
+            <div className="hero-content flex-col lg:flex-row-reverse">
+                <div className="text-center lg:text-left">
+                    <h1 className="text-5xl font-bold">Signup</h1>
+                    <p className="py-6">
+                        Join our marketplace community and explore a world of unique offerings. Sign
+                        up now to create your account and start buying or selling. Your journey to
+                        discovering exclusive deals and connecting with other users begins here.
+                    </p>
+                </div>
+                <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <form className="card-body" onSubmit={handleSubmit}>
+                        <Form.Group className="form-control">
+                            <Form.Label className="label">
+                                <span className="label-text">First Name</span>
+                            </Form.Label>
+                            <Form.Control
+                                id="firstname"
+                                type="text"
+                                value={firstname}
+                                onChange={(event) => {
+                                    setFirstname(event.target.value);
+                                }}
+                                placeholder="First Name"
+                                className="input input-bordered"
+                                required
+                            />
+                            <Form.Text className="text-muted">
+                                {firstnameError && (
+                                    <div className="text-danger">{firstnameError}</div>
+                                )}
+                            </Form.Text>
+                        </Form.Group>
+                        <Form.Group className="form-control">
+                            <Form.Label className="label">
+                                <span className="label-text">Last Name</span>
+                            </Form.Label>
+                            <Form.Control
+                                id="lastname"
+                                type="text"
+                                value={lastname}
+                                onChange={(event) => {
+                                    setLastname(event.target.value);
+                                }}
+                                placeholder="Last Name"
+                                className="input input-bordered"
+                                required
+                            />
+                            <Form.Text className="text-muted">
+                                {lastnameError && (
+                                    <div className="text-danger">{lastnameError}</div>
+                                )}
+                            </Form.Text>
+                        </Form.Group>
+                        <Form.Group className="form-control">
+                            <Form.Label className="label">
+                                <span className="label-text">Username</span>
+                            </Form.Label>
+                            <Form.Control
+                                id="username"
+                                type="text"
+                                value={username}
+                                onChange={(event) => {
+                                    setUsername(event.target.value);
+                                }}
+                                placeholder="Username"
+                                className="input input-bordered"
+                                required
+                            />
+                            <Form.Text className="text-muted">
+                                {usernameError && (
+                                    <div className="text-danger">{usernameError}</div>
+                                )}
+                            </Form.Text>
+                        </Form.Group>
+                        <Form.Group className="form-control">
+                            <Form.Label className="label">
+                                <span className="label-text">Password</span>
+                            </Form.Label>
+                            <Form.Control
+                                id="password"
+                                type="password"
+                                onChange={(event) => {
+                                    setPassword(event.target.value);
+                                }}
+                                placeholder="Password"
+                                className="input input-bordered"
+                                required
+                            />
+                            <Form.Text className="text-muted">
+                                {passwordError && (
+                                    <div className="text-danger">{passwordError}</div>
+                                )}
+                            </Form.Text>
+                        </Form.Group>
+                        <Form.Group className="form-control mt-6">
+                            <Button variant="primary" type="submit">
+                                Sign Up
+                            </Button>
+                        </Form.Group>
+                    </form>
+                </div>
+            </div>
+        </div>
     );
 };
 

@@ -44,14 +44,12 @@ const CustomerSales: React.FC = () => {
             <Header></Header>
 
             <main>
-                <section className="row justify-content-center min-vh-100">
-                    <div className="col-6">
-                        <h4>My Sales</h4>
+                <section>
+                    <div>
                         <SalesOverview sales={sales} />
                     </div>
                 </section>
             </main>
-            <Footer></Footer>
         </>
     );
 };

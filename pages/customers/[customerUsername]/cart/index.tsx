@@ -71,59 +71,49 @@ const CustomerCart: React.FC = () => {
             <Header></Header>
 
             <main>
-                <section className="row justify-content-center min-vh-100">
-                    <div className="col-6">
-                        <h4>Cart Overview</h4>
+                <div className="bg-base-200 p-4 rounded-box w-full">
+                    {isSessionStorageLoaded ? (
                         <div>
-                            {isSessionStorageLoaded ? (
-                                <div>
-                                    {cart.length === 0 ? ( // Check if cart is empty
-                                        <p>Cart is empty.</p>
-                                    ) : (
-                                        <div>
-                                            <table className="table table-striped">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Product</th>
-                                                        <th>Price</th>
-                                                        <th>Quantity</th>
-                                                        <th>Total Price</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    {cart.map((item, index) => (
-                                                        <tr key={index}>
-                                                            <td>{item.product.name}</td>
-                                                            <td>${item.product.price}</td>
-                                                            <td>{item.quantity}</td>
-                                                            <td>
-                                                                $
-                                                                {item.product.price * item.quantity}
-                                                            </td>
-                                                        </tr>
-                                                    ))}
-                                                </tbody>
-                                            </table>
-                                            <div className="text-end">
-                                                <p>Total Price: ${total}</p>
-                                                <button
-                                                    className="btn btn-primary"
-                                                    onClick={handlePurchase}
-                                                >
-                                                    Purchase
-                                                </button>
-                                            </div>
-                                        </div>
-                                    )}
-                                </div>
+                            {cart.length === 0 ? (
+                                <p>Cart is empty.</p>
                             ) : (
-                                <p>Loading...</p>
+                                <div>
+                                    <table className="table table-striped table-bordered table-hover bg-base-100">
+                                        <thead>
+                                            <tr>
+                                                <th>Product</th>
+                                                <th>Price</th>
+                                                <th>Quantity</th>
+                                                <th>Total Price</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {cart.map((item, index) => (
+                                                <tr key={index}>
+                                                    <td>{item.product.name}</td>
+                                                    <td>${item.product.price}</td>
+                                                    <td>{item.quantity}</td>
+                                                    <td>${item.product.price * item.quantity}</td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                    <div className="text-end">
+                                        <button
+                                            className="btn btn-primary mt-2"
+                                            onClick={handlePurchase}
+                                        >
+                                            Purchase
+                                        </button>
+                                    </div>
+                                </div>
                             )}
                         </div>
-                    </div>
-                </section>
+                    ) : (
+                        <p>Loading...</p>
+                    )}
+                </div>
             </main>
-            <Footer></Footer>
         </>
     );
 };

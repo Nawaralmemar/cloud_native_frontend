@@ -37,62 +37,76 @@ const ProductsOverview: React.FC<Props> = ({ products }: Props) => {
                 quantity: quantity,
             });
         }
-
+        alert('Added to cart');
         // Save the updated cart back to sessionStorage
         sessionStorage.setItem('cart', JSON.stringify(cart));
     };
 
     return (
-        <div className="row">
-            {products &&
-                products.map((product, index) => (
-                    <div className="col-md-4 mb-4" key={index}>
-                        <div className="card">
-                            <img
-                                src="https://loremflickr.com/320/240"
-                                className="card-img-top"
-                                alt="Product"
-                            />
+        <div className="bg-base-200 p-4 rounded-box w-full">
+            <div className="grid-container mt-2">
+                {products &&
+                    products.map((product, index) => (
+                        <div
+                            className="card bg-base-100 rounded-box indicator"
+                            key={index}
+                            style={{ width: '240px', border: '2px solid #2a323c' }}
+                        >
+                            <figure>
+                                <img
+                                    src={`https://loremflickr.com/320/240?random=${index}`}
+                                    alt="product"
+                                />
+                            </figure>
+                            <span
+                                style={{ border: '2px solid #2a323c' }}
+                                className="border-1 p-3 text-md text-white indicator-item indicator-center badge badge-primary"
+                            >
+                                ${product.price}
+                            </span>
                             <div className="card-body">
-                                <h5 className="card-title">{product.name}</h5>
-                                <p className="card-text">
-                                    <strong>Serial:</strong> {product.serialNumber}
-                                </p>
-                                <p className="card-text">
-                                    {' '}
-                                    <strong>Price:</strong> ${product.price}
-                                </p>
-                                <p className="card-text">
-                                    {' '}
-                                    <strong>Description:</strong> {product.description}
-                                </p>
-                                <p className="card-text">
-                                    <strong>Seller:</strong> {product.sellerUsername}
-                                </p>
-
+                                <h2 className="card-title font-bold text-3xl">
+                                    {product.name}{' '}
+                                    <div className="text-xs font-thin">
+                                        (#{product.serialNumber})
+                                    </div>
+                                </h2>
+                                <p className="text-sm">{product.description}</p>
+                                <input
+                                    type="number"
+                                    onChange={(e) =>
+                                        handleQuantityChange(
+                                            product.serialNumber,
+                                            parseInt(e.target.value, 10)
+                                        )
+                                    }
+                                    value={quantities[product.serialNumber] || '1'}
+                                    min={1}
+                                    className="input input-bordered w-full max-w-xs"
+                                />
                                 <button
                                     className="btn btn-primary"
                                     onClick={() => addToCart(product)}
                                 >
                                     Add to Cart
                                 </button>
-                                <div>
-                                    <input
-                                        type="number"
-                                        onChange={(e) =>
-                                            handleQuantityChange(
-                                                product.serialNumber,
-                                                parseInt(e.target.value, 10)
-                                            )
-                                        }
-                                        value={quantities[product.serialNumber] || '1'}
-                                        min={1}
-                                    />
-                                </div>
                             </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
+            </div>
+            <style jsx>{`
+                .grid-container {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+                    gap: 10px;
+                }
+
+                @media (max-width: 767px) {
+                    .grid-container {
+                        grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+                    }
+                }
+            `}</style>
         </div>
     );
 };

@@ -44,15 +44,7 @@ const CustomerProducts: React.FC = () => {
             </Head>
             <Header></Header>
 
-            <main>
-                <section className="row justify-content-center min-vh-100">
-                    <div className="col-6">
-                        <h4>My Products</h4>
-                        <ProductsOverview products={products} />
-                    </div>
-                </section>
-            </main>
-            <Footer></Footer>
+            <ProductsOverview products={products} />
         </>
     );
 };

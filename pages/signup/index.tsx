@@ -11,13 +11,11 @@ const Signup: React.FC = () => {
             </Head>
 
             <Header></Header>
-            <main className="vh-100">
-                <h4 className="text-center">Sign Up</h4>
-                <section className="row justify-content-evenly">
+            <main>
+                <section>
                     <SignupForm />
                 </section>
             </main>
-            <Footer></Footer>
         </>
     );
 };

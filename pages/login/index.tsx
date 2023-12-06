@@ -11,13 +11,11 @@ const Login: React.FC = () => {
             </Head>
 
             <Header></Header>
-            <main className="vh-100">
-                <h4 className="text-center">Log In</h4>
-                <section className="row justify-content-evenly">
+            <main>
+                <section>
                     <LoginForm />
                 </section>
             </main>
-            <Footer></Footer>
         </>
     );
 };

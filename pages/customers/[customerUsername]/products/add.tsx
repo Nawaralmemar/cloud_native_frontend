@@ -28,15 +28,12 @@ const AddProduct: React.FC = () => {
             <Head>
                 <title>Home</title>
             </Head>
-
             <Header />
-            <main className="vh-100">
-                <h4 className="text-center">Add Product</h4>
-                <section className="row justify-content-evenly">
+            <main>
+                <section>
                     <AddProductForm customerUsername={customerUsername} />
                 </section>
             </main>
-            <Footer />
         </>
     );
 };
