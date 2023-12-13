@@ -8,10 +8,10 @@ html {
     background-color: #1c2229 !important;
 }
 
-li a:hover {
+.btn-ghost.btn-sm:hover {
     background-color: #373f49 !important;
 }
 
-li {
-    margin-left: 25px !important;
+.btn-ghost.btn-sm {
+    margin-left: 8px;
 }

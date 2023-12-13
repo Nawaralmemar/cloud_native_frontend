@@ -33,6 +33,8 @@ const Nav: React.FC = () => {
         handleCartCount();
     }, []);
 
+    // ... (existing imports)
+
     return (
         <div className="navbar bg-neutral text-neutral-content shadow-lg rounded-box my-3">
             <div className="navbar-start">
@@ -59,8 +61,12 @@ const Nav: React.FC = () => {
                             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-neutral rounded-box w-52"
                         >
                             <li>
-                                <Link
-                                    href={`/customers/${user.username}/products`}
+                                <button
+                                    role="button"
+                                    className="btn btn-ghost btn-sm"
+                                    onClick={() =>
+                                        router.push(`/customers/${user.username}/products`)
+                                    }
                                     style={{
                                         backgroundColor:
                                             router.pathname ===
@@ -70,11 +76,13 @@ const Nav: React.FC = () => {
                                     }}
                                 >
                                     My Products
-                                </Link>
+                                </button>
                             </li>
                             <li>
-                                <Link
-                                    href={`/customers/${user.username}/sales`}
+                                <button
+                                    role="button"
+                                    className="btn btn-ghost btn-sm"
+                                    onClick={() => router.push(`/customers/${user.username}/sales`)}
                                     style={{
                                         backgroundColor:
                                             router.pathname ===
@@ -84,11 +92,15 @@ const Nav: React.FC = () => {
                                     }}
                                 >
                                     My Sales
-                                </Link>
+                                </button>
                             </li>
                             <li>
-                                <Link
-                                    href={`/customers/${user.username}/marketplace`}
+                                <button
+                                    role="button"
+                                    className="btn btn-ghost btn-sm"
+                                    onClick={() =>
+                                        router.push(`/customers/${user.username}/marketplace`)
+                                    }
                                     style={{
                                         backgroundColor:
                                             router.pathname ===
@@ -98,11 +110,13 @@ const Nav: React.FC = () => {
                                     }}
                                 >
                                     Marketplace
-                                </Link>
+                                </button>
                             </li>
                             <li>
-                                <Link
-                                    href={`/customers/${user.username}/cart`}
+                                <button
+                                    role="button"
+                                    className="btn btn-ghost btn-sm"
+                                    onClick={() => router.push(`/customers/${user.username}/cart`)}
                                     style={{
                                         backgroundColor:
                                             router.pathname === '/customers/[customerUsername]/cart'
@@ -111,24 +125,36 @@ const Nav: React.FC = () => {
                                     }}
                                 >
                                     Cart
-                                </Link>
+                                </button>
                             </li>
                             <li>
-                                <button onClick={handleLogOut}>Log Out</button>
+                                <button
+                                    role="button"
+                                    className="btn btn-ghost btn-sm"
+                                    onClick={handleLogOut}
+                                >
+                                    Log Out
+                                </button>
                             </li>
                         </ul>
                     )}
                 </div>
-                <Link href="/">
-                    <button className="btn btn-ghost text-xl">E-commerce</button>
-                </Link>
+                <button
+                    role="button"
+                    className="btn btn-ghost text-xl btn-sm"
+                    onClick={() => router.push('/')}
+                >
+                    E-commerce
+                </button>
             </div>
             {user && (
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         <li>
-                            <Link
-                                href={`/customers/${user.username}/products`}
+                            <button
+                                role="button"
+                                className="btn btn-ghost btn-sm"
+                                onClick={() => router.push(`/customers/${user.username}/products`)}
                                 style={{
                                     backgroundColor:
                                         router.pathname === '/customers/[customerUsername]/products'
@@ -137,11 +163,13 @@ const Nav: React.FC = () => {
                                 }}
                             >
                                 My Products
-                            </Link>
+                            </button>
                         </li>
                         <li>
-                            <Link
-                                href={`/customers/${user.username}/sales`}
+                            <button
+                                role="button"
+                                className="btn btn-ghost btn-sm"
+                                onClick={() => router.push(`/customers/${user.username}/sales`)}
                                 style={{
                                     backgroundColor:
                                         router.pathname === '/customers/[customerUsername]/sales'
@@ -150,11 +178,15 @@ const Nav: React.FC = () => {
                                 }}
                             >
                                 My Sales
-                            </Link>
+                            </button>
                         </li>
                         <li>
-                            <Link
-                                href={`/customers/${user.username}/marketplace`}
+                            <button
+                                role="button"
+                                className="btn btn-ghost btn-sm"
+                                onClick={() =>
+                                    router.push(`/customers/${user.username}/marketplace`)
+                                }
                                 style={{
                                     backgroundColor:
                                         router.pathname ===
@@ -164,7 +196,7 @@ const Nav: React.FC = () => {
                                 }}
                             >
                                 Marketplace
-                            </Link>
+                            </button>
                         </li>
                     </ul>
                 </div>
@@ -174,13 +206,14 @@ const Nav: React.FC = () => {
                     <>
                         <div className="dropdown dropdown-end">
                             <div role="button" className="btn btn-ghost btn-circle">
-                                <Link
-                                    href={`/customers/${user.username}/cart`}
+                                <button
+                                    role="button"
                                     className={`link nav-link px-4 fs-5 ${
                                         router.pathname === '/customers/[customerUsername]/cart'
                                             ? 'bg-base-100'
                                             : ''
                                     }`}
+                                    onClick={() => router.push(`/customers/${user.username}/cart`)}
                                     style={{
                                         backgroundColor:
                                             router.pathname === '/customers/[customerUsername]/cart'
@@ -207,18 +240,18 @@ const Nav: React.FC = () => {
                                             {cartCount}
                                         </span>
                                     </div>
-                                </Link>
+                                </button>
                             </div>
                         </div>
                     </>
                 )}
-                <div role="button" className="btn btn-ghost btn-sm">
-                    <button onClick={handleLogOut}>{user ? 'Logout' : 'Login'}</button>
-                </div>
+                <button role="button" className="btn btn-ghost btn-sm" onClick={handleLogOut}>
+                    {user ? 'Logout' : 'Login'}
+                </button>
                 {!user && (
-                    <div role="button" className="btn btn-ghost btn-sm">
-                        <button onClick={handleLogOut}>Signup</button>
-                    </div>
+                    <button role="button" className="btn btn-ghost btn-sm" onClick={handleLogOut}>
+                        Signup
+                    </button>
                 )}
             </div>
         </div>
