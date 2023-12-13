@@ -63,7 +63,7 @@ const Nav: React.FC = () => {
                                     style={{
                                         backgroundColor:
                                             router.pathname ===
-                                            '/customers/[customerUsername]/products'
+                                                '/customers/[customerUsername]/products'
                                                 ? '#373f49'
                                                 : 'transparent',
                                     }}
@@ -77,7 +77,7 @@ const Nav: React.FC = () => {
                                     style={{
                                         backgroundColor:
                                             router.pathname ===
-                                            '/customers/[customerUsername]/sales'
+                                                '/customers/[customerUsername]/sales'
                                                 ? '#373f49'
                                                 : 'transparent',
                                     }}
@@ -91,7 +91,7 @@ const Nav: React.FC = () => {
                                     style={{
                                         backgroundColor:
                                             router.pathname ===
-                                            '/customers/[customerUsername]/marketplace'
+                                                '/customers/[customerUsername]/marketplace'
                                                 ? '#373f49'
                                                 : 'transparent',
                                     }}
@@ -113,8 +113,8 @@ const Nav: React.FC = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link onClick={handleLogOut} href="/login">
-                                    Log Out
+                                <Link href="/login">
+                                    <a onClick={handleLogOut}>Log Out</a>
                                 </Link>
                             </li>
                         </ul>
@@ -162,7 +162,7 @@ const Nav: React.FC = () => {
                                 style={{
                                     backgroundColor:
                                         router.pathname ===
-                                        '/customers/[customerUsername]/marketplace'
+                                            '/customers/[customerUsername]/marketplace'
                                             ? '#373f49'
                                             : 'transparent',
                                 }}
@@ -180,11 +180,10 @@ const Nav: React.FC = () => {
                             <div role="button" className="btn btn-ghost btn-circle">
                                 <Link
                                     href={`/customers/${user.username}/cart`}
-                                    className={`link nav-link px-4 fs-5 ${
-                                        router.pathname === '/customers/[customerUsername]/cart'
+                                    className={`link nav-link px-4 fs-5 ${router.pathname === '/customers/[customerUsername]/cart'
                                             ? 'bg-base-100'
                                             : ''
-                                    }`}
+                                        }`}
                                     style={{
                                         backgroundColor:
                                             router.pathname === '/customers/[customerUsername]/cart'
@@ -217,14 +216,16 @@ const Nav: React.FC = () => {
                     </>
                 )}
                 <div role="button" className="btn btn-ghost btn-sm">
-                    <Link onClick={handleLogOut} href="/login">
-                        {user ? 'Logout' : 'Login'}
+                    <Link href="/login">
+                        <a onClick={handleLogOut}>{user ? 'Logout' : 'Login'}</a>
+
                     </Link>
                 </div>
                 {!user && (
                     <div role="button" className="btn btn-ghost btn-sm">
-                        <Link onClick={handleLogOut} href="/signup">
-                            Signup
+                        <Link href="/signup">
+                            <a onClick={handleLogOut}>Signup</a>
+
                         </Link>
                     </div>
                 )}
