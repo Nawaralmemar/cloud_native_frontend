@@ -14,6 +14,7 @@ const Nav: React.FC = () => {
         sessionStorage.removeItem('user');
         sessionStorage.removeItem('cart');
         setUser(null);
+        router.push('/login');
     };
 
     const handleCartCount = () => {
@@ -113,18 +114,13 @@ const Nav: React.FC = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link onClick={handleLogOut} href="/login">
-                                    Log Out
-                                </Link>
+                                <button onClick={handleLogOut}>Log Out</button>
                             </li>
                         </ul>
                     )}
                 </div>
-                <Link
-                    href="/"
-                    className={`btn btn-ghost text-xl ${router.pathname === '/' ? '' : ''}`}
-                >
-                    E-commerce
+                <Link href="/">
+                    <button className="btn btn-ghost text-xl">E-commerce</button>
                 </Link>
             </div>
             {user && (
@@ -217,15 +213,11 @@ const Nav: React.FC = () => {
                     </>
                 )}
                 <div role="button" className="btn btn-ghost btn-sm">
-                    <Link onClick={handleLogOut} href="/login">
-                        {user ? 'Logout' : 'Login'}
-                    </Link>
+                    <button onClick={handleLogOut}>{user ? 'Logout' : 'Login'}</button>
                 </div>
                 {!user && (
                     <div role="button" className="btn btn-ghost btn-sm">
-                        <Link onClick={handleLogOut} href="/signup">
-                            Signup
-                        </Link>
+                        <button onClick={handleLogOut}>Signup</button>
                     </div>
                 )}
             </div>

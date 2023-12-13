@@ -59,15 +59,8 @@ const ProductsOverview: React.FC<Props> = ({ products }: Props) => {
                     ))}
             </div>
             {user && (
-                <Link
-                    href={`/customers/${user.username}/products/add`}
-                    className={`btn btn-primary mb-4${
-                        router.pathname == '/customers/[customerUsername]/products/add'
-                            ? 'bg-base-100'
-                            : ''
-                    }`}
-                >
-                    Add Products
+                <Link href={`/customers/${user.username}/products/add`}>
+                    <button className="btn btn-primary">Add Products</button>
                 </Link>
             )}
             <style jsx>{`
