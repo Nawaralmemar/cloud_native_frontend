@@ -4,4 +4,4 @@ This repository contains the front end for our project, hosted on Azure Static W
 
 ## Usage
 
-Visit the provided link to access the hosted website: [https://witty-moss-0fdf1f203.4.azurestaticapps.net/](https://witty-moss-0fdf1f203.4.azurestaticapps.net/)
+Visit the provided link to access the hosted website: [https://black-flower-0ca1a4b03.4.azurestaticapps.net/](https://black-flower-0ca1a4b03.4.azurestaticapps.net/)
