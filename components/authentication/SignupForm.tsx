@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import CustomerService from '../../services/CustomerService';
 import StatusMessageParser from '../StatusMessageParser';
-import { Button, Form } from 'react-bootstrap';
 import { Customer } from '../../types';
 import { useRouter } from 'next/router';
 
@@ -83,7 +82,7 @@ const SignupForm: React.FC = () => {
     };
 
     return (
-        <div className="hero bg-base-200 rounded-box p-2">
+        <div className="bg-base-200 rounded-box p-2">
             <StatusMessageParser statusMessage={statusMessage} />
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left">
@@ -96,94 +95,86 @@ const SignupForm: React.FC = () => {
                 </div>
                 <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <form className="card-body" onSubmit={handleSubmit}>
-                        <Form.Group className="form-control">
-                            <Form.Label className="label">
+                        <div className="form-control">
+                            <label className="label" htmlFor="firstname">
                                 <span className="label-text">First Name</span>
-                            </Form.Label>
-                            <Form.Control
+                            </label>
+                            <input
                                 id="firstname"
                                 type="text"
                                 value={firstname}
-                                onChange={(event) => {
-                                    setFirstname(event.target.value);
-                                }}
+                                onChange={(event) => setFirstname(event.target.value)}
                                 placeholder="First Name"
                                 className="input input-bordered"
                                 required
                             />
-                            <Form.Text className="text-muted">
+                            <div className="text-muted">
                                 {firstnameError && (
                                     <div className="text-danger">{firstnameError}</div>
                                 )}
-                            </Form.Text>
-                        </Form.Group>
-                        <Form.Group className="form-control">
-                            <Form.Label className="label">
+                            </div>
+                        </div>
+                        <div className="form-control">
+                            <label className="label" htmlFor="lastname">
                                 <span className="label-text">Last Name</span>
-                            </Form.Label>
-                            <Form.Control
+                            </label>
+                            <input
                                 id="lastname"
                                 type="text"
                                 value={lastname}
-                                onChange={(event) => {
-                                    setLastname(event.target.value);
-                                }}
+                                onChange={(event) => setLastname(event.target.value)}
                                 placeholder="Last Name"
                                 className="input input-bordered"
                                 required
                             />
-                            <Form.Text className="text-muted">
+                            <div className="text-muted">
                                 {lastnameError && (
                                     <div className="text-danger">{lastnameError}</div>
                                 )}
-                            </Form.Text>
-                        </Form.Group>
-                        <Form.Group className="form-control">
-                            <Form.Label className="label">
+                            </div>
+                        </div>
+                        <div className="form-control">
+                            <label className="label" htmlFor="username">
                                 <span className="label-text">Username</span>
-                            </Form.Label>
-                            <Form.Control
+                            </label>
+                            <input
                                 id="username"
                                 type="text"
                                 value={username}
-                                onChange={(event) => {
-                                    setUsername(event.target.value);
-                                }}
+                                onChange={(event) => setUsername(event.target.value)}
                                 placeholder="Username"
                                 className="input input-bordered"
                                 required
                             />
-                            <Form.Text className="text-muted">
+                            <div className="text-muted">
                                 {usernameError && (
                                     <div className="text-danger">{usernameError}</div>
                                 )}
-                            </Form.Text>
-                        </Form.Group>
-                        <Form.Group className="form-control">
-                            <Form.Label className="label">
+                            </div>
+                        </div>
+                        <div className="form-control">
+                            <label className="label" htmlFor="password">
                                 <span className="label-text">Password</span>
-                            </Form.Label>
-                            <Form.Control
+                            </label>
+                            <input
                                 id="password"
                                 type="password"
-                                onChange={(event) => {
-                                    setPassword(event.target.value);
-                                }}
+                                onChange={(event) => setPassword(event.target.value)}
                                 placeholder="Password"
                                 className="input input-bordered"
                                 required
                             />
-                            <Form.Text className="text-muted">
+                            <div className="text-muted">
                                 {passwordError && (
                                     <div className="text-danger">{passwordError}</div>
                                 )}
-                            </Form.Text>
-                        </Form.Group>
-                        <Form.Group className="form-control mt-6">
-                            <Button variant="primary" type="submit">
+                            </div>
+                        </div>
+                        <div className="form-control mt-6">
+                            <button type="submit" className="btn btn-primary">
                                 Sign Up
-                            </Button>
-                        </Form.Group>
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>

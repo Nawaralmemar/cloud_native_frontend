@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Product } from '../../../types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faHashtag, faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 
 type Props = {
     products: Array<Product>;
@@ -48,30 +50,40 @@ const ProductsOverview: React.FC<Props> = ({ products }: Props) => {
                 {products &&
                     products.map((product, index) => (
                         <div
-                            className="card bg-base-100 rounded-box indicator"
+                            className="card bg-base-100 rounded-box indicator mb-4"
                             key={index}
                             style={{ width: '240px', border: '2px solid #2a323c' }}
                         >
-                            <figure>
-                                <img
-                                    src={`https://loremflickr.com/320/240?random=${index}`}
-                                    alt="product"
-                                />
-                            </figure>
                             <span
                                 style={{ border: '2px solid #2a323c' }}
-                                className="border-1 p-3 text-md text-white indicator-item indicator-center badge badge-primary"
+                                className="border-1 p-3 text-md indicator-item indicator-center badge badge-primary"
                             >
                                 ${product.price}
                             </span>
                             <div className="card-body">
-                                <h2 className="card-title font-bold text-3xl">
-                                    {product.name}{' '}
-                                    <div className="text-xs font-thin">
-                                        (#{product.serialNumber})
-                                    </div>
+                                <h2
+                                    style={{ fontSize: '32px', color: '#646ee4' }}
+                                    className="font-bold"
+                                >
+                                    {' '}
+                                    {product.name}
                                 </h2>
-                                <p className="text-sm">{product.description}</p>
+                                <span className="text-xs">
+                                    <FontAwesomeIcon icon={faCircleInfo} />
+                                    <span style={{ marginLeft: '5px' }}>{product.description}</span>
+                                </span>
+                                <span className="text-xs">
+                                    <FontAwesomeIcon icon={faUser} />
+                                    <span style={{ marginLeft: '5px' }}>
+                                        {product.sellerUsername}
+                                    </span>
+                                </span>
+                                <span className="text-xs">
+                                    <FontAwesomeIcon icon={faHashtag} />
+                                    <span style={{ marginLeft: '5px' }}>
+                                        {product.serialNumber}
+                                    </span>
+                                </span>
                                 <input
                                     type="number"
                                     onChange={(e) =>

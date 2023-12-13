@@ -41,9 +41,10 @@ const Home: React.FC = () => {
 
                             {user ? (
                                 <Link
-                                    href={`/customers/${user.username}/products`}
+                                    href={`/customers/${user.username}/marketplace`}
                                     className={`btn btn-primary ${
-                                        router.pathname == '/customers/[customerUsername]/products'
+                                        router.pathname ==
+                                        '/customers/[customerUsername]/marketplace'
                                             ? 'active'
                                             : ''
                                     }`}

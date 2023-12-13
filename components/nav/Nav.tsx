@@ -60,11 +60,13 @@ const Nav: React.FC = () => {
                             <li>
                                 <Link
                                     href={`/customers/${user.username}/products`}
-                                    className={`${
-                                        router.pathname == '/customers/[customerUsername]/products'
-                                            ? 'bg-neutral'
-                                            : ''
-                                    }`}
+                                    style={{
+                                        backgroundColor:
+                                            router.pathname ===
+                                            '/customers/[customerUsername]/products'
+                                                ? '#373f49'
+                                                : 'transparent',
+                                    }}
                                 >
                                     My Products
                                 </Link>
@@ -72,11 +74,13 @@ const Nav: React.FC = () => {
                             <li>
                                 <Link
                                     href={`/customers/${user.username}/sales`}
-                                    className={`${
-                                        router.pathname == '/customers/[customerUsername]/sales'
-                                            ? 'bg-neutral'
-                                            : ''
-                                    }`}
+                                    style={{
+                                        backgroundColor:
+                                            router.pathname ===
+                                            '/customers/[customerUsername]/sales'
+                                                ? '#373f49'
+                                                : 'transparent',
+                                    }}
                                 >
                                     My Sales
                                 </Link>
@@ -84,12 +88,13 @@ const Nav: React.FC = () => {
                             <li>
                                 <Link
                                     href={`/customers/${user.username}/marketplace`}
-                                    className={`${
-                                        router.pathname ==
-                                        '/customers/[customerUsername]/marketplace'
-                                            ? 'bg-neutral'
-                                            : ''
-                                    }`}
+                                    style={{
+                                        backgroundColor:
+                                            router.pathname ===
+                                            '/customers/[customerUsername]/marketplace'
+                                                ? '#373f49'
+                                                : 'transparent',
+                                    }}
                                 >
                                     Marketplace
                                 </Link>
@@ -97,11 +102,12 @@ const Nav: React.FC = () => {
                             <li>
                                 <Link
                                     href={`/customers/${user.username}/cart`}
-                                    className={`${
-                                        router.pathname == '/customers/[customerUsername]/cart'
-                                            ? 'bg-neutral'
-                                            : ''
-                                    }`}
+                                    style={{
+                                        backgroundColor:
+                                            router.pathname === '/customers/[customerUsername]/cart'
+                                                ? 'transparent'
+                                                : 'transparent',
+                                    }}
                                 >
                                     Cart
                                 </Link>
@@ -116,9 +122,7 @@ const Nav: React.FC = () => {
                 </div>
                 <Link
                     href="/"
-                    className={`btn btn-ghost text-xl ${
-                        router.pathname == '/' ? 'bg-neutral' : ''
-                    }`}
+                    className={`btn btn-ghost text-xl ${router.pathname === '/' ? '' : ''}`}
                 >
                     E-commerce
                 </Link>
@@ -129,11 +133,12 @@ const Nav: React.FC = () => {
                         <li>
                             <Link
                                 href={`/customers/${user.username}/products`}
-                                className={`${
-                                    router.pathname == '/customers/[customerUsername]/products'
-                                        ? 'bg-neutral'
-                                        : ''
-                                }`}
+                                style={{
+                                    backgroundColor:
+                                        router.pathname === '/customers/[customerUsername]/products'
+                                            ? '#373f49'
+                                            : 'transparent',
+                                }}
                             >
                                 My Products
                             </Link>
@@ -141,11 +146,12 @@ const Nav: React.FC = () => {
                         <li>
                             <Link
                                 href={`/customers/${user.username}/sales`}
-                                className={`${
-                                    router.pathname == '/customers/[customerUsername]/sales'
-                                        ? 'bg-neutral'
-                                        : ''
-                                }`}
+                                style={{
+                                    backgroundColor:
+                                        router.pathname === '/customers/[customerUsername]/sales'
+                                            ? '#373f49'
+                                            : 'transparent',
+                                }}
                             >
                                 My Sales
                             </Link>
@@ -153,11 +159,13 @@ const Nav: React.FC = () => {
                         <li>
                             <Link
                                 href={`/customers/${user.username}/marketplace`}
-                                className={`${
-                                    router.pathname == '/customers/[customerUsername]/marketplace'
-                                        ? 'bg-neutral'
-                                        : ''
-                                }`}
+                                style={{
+                                    backgroundColor:
+                                        router.pathname ===
+                                        '/customers/[customerUsername]/marketplace'
+                                            ? '#373f49'
+                                            : 'transparent',
+                                }}
                             >
                                 Marketplace
                             </Link>
@@ -173,10 +181,16 @@ const Nav: React.FC = () => {
                                 <Link
                                     href={`/customers/${user.username}/cart`}
                                     className={`link nav-link px-4 fs-5 ${
-                                        router.pathname == '/customers/[customerUsername]/cart'
-                                            ? 'bg-neutral'
+                                        router.pathname === '/customers/[customerUsername]/cart'
+                                            ? 'bg-base-100'
                                             : ''
                                     }`}
+                                    style={{
+                                        backgroundColor:
+                                            router.pathname === '/customers/[customerUsername]/cart'
+                                                ? 'transparent'
+                                                : 'transparent',
+                                    }}
                                 >
                                     <div className="indicator">
                                         <svg
@@ -199,11 +213,6 @@ const Nav: React.FC = () => {
                                     </div>
                                 </Link>
                             </div>
-                            <style jsx>{`
-                                .bg-neutral {
-                                    color: #fff !important;
-                                }
-                            `}</style>
                         </div>
                     </>
                 )}

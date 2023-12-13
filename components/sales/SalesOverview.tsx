@@ -12,10 +12,10 @@ const SalesOverview: React.FC<Props> = ({ sales }: Props) => {
             <table className="table table-striped table-bordered table-hover bg-base-100">
                 <thead className="table-dark">
                     <tr>
-                        <th className="text-white">Serial</th>
-                        <th className="text-white">Quantity</th>
-                        <th className="text-white">Date</th>
-                        <th className="text-white">Buyer</th>
+                        <th>Serial</th>
+                        <th>Quantity</th>
+                        <th>Date</th>
+                        <th>Buyer</th>
                     </tr>
                 </thead>
                 <tbody>

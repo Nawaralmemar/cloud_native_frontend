@@ -1,7 +1,6 @@
 import React, { use, useState } from 'react';
 import CustomerService from '../../services/CustomerService';
 import StatusMessageParser from '../StatusMessageParser';
-import { Button, Form } from 'react-bootstrap';
 import { Customer } from '../../types';
 import { useRouter } from 'next/router';
 
@@ -88,60 +87,56 @@ const LoginForm: React.FC<Props> = () => {
                     </p>
                 </div>
                 <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                    <Form className="card-body" onSubmit={handleSubmit}>
-                        <Form.Group className="form-control">
-                            <Form.Label className="label">
+                    <form className="card-body" onSubmit={handleSubmit}>
+                        <div className="form-control">
+                            <label className="label" htmlFor="username">
                                 <span className="label-text">Username</span>
-                            </Form.Label>
-                            <Form.Control
+                            </label>
+                            <input
                                 id="username"
                                 type="text"
                                 value={username}
-                                onChange={(event) => {
-                                    setUsername(event.target.value);
-                                }}
+                                onChange={(event) => setUsername(event.target.value)}
                                 placeholder="username"
                                 className="input input-bordered"
                                 required
                             />
-                            <Form.Text className="text-muted">
+                            <div className="text-muted">
                                 {usernameError && (
                                     <div className="text-danger">{usernameError}</div>
                                 )}
-                            </Form.Text>
-                        </Form.Group>
-                        <Form.Group className="form-control">
-                            <Form.Label className="label">
+                            </div>
+                        </div>
+                        <div className="form-control">
+                            <label className="label" htmlFor="password">
                                 <span className="label-text">Password</span>
-                            </Form.Label>
-                            <Form.Control
+                            </label>
+                            <input
                                 id="password"
                                 type="password"
                                 value={password}
-                                onChange={(event) => {
-                                    setPassword(event.target.value);
-                                }}
+                                onChange={(event) => setPassword(event.target.value)}
                                 placeholder="password"
                                 className="input input-bordered"
                                 required
                             />
-                            <Form.Text className="text-muted">
+                            <div className="text-muted">
                                 {passwordError && (
                                     <div className="text-danger">{passwordError}</div>
                                 )}
-                            </Form.Text>
+                            </div>
                             <label className="label">
                                 <a href="#" className="label-text-alt link link-hover">
                                     Forgot password?
                                 </a>
                             </label>
-                        </Form.Group>
-                        <Form.Group className="form-control mt-6">
-                            <Button variant="primary" type="submit">
+                        </div>
+                        <div className="form-control mt-6">
+                            <button type="submit" className="btn btn-primary">
                                 Login
-                            </Button>
-                        </Form.Group>
-                    </Form>
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

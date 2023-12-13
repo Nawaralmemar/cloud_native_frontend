@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-.active {
-    @apply bg-primary !important;
+/* ugly css cause tailwind is a bitch */
+
+html {
+    background-color: #1c2229 !important;
+}
+
+li a:hover {
+    background-color: #373f49 !important;
+}
+
+li a {
+    margin-left: 4px !important;
 }

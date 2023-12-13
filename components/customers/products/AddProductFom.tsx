@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import ProductService from '../../../services/ProductService';
 import StatusMessageParser from '../../StatusMessageParser';
-import { Button, Form } from 'react-bootstrap';
 import { Product } from '../../../types';
 import { useRouter } from 'next/router';
 
@@ -86,7 +85,7 @@ const AddProductForm: React.FC<Props> = ({ customerUsername }) => {
     };
 
     return (
-        <div className="hero bg-base-200 rounded-box p-2">
+        <div className="bg-base-200 rounded-box p-2">
             <StatusMessageParser statusMessage={statusMessage} />
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left">
@@ -99,92 +98,83 @@ const AddProductForm: React.FC<Props> = ({ customerUsername }) => {
                 </div>
                 <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <form className="card-body" onSubmit={handleSubmit}>
-                        <Form.Group className="form-control">
-                            <Form.Label className="label">
+                        <div className="form-control">
+                            <label className="label" htmlFor="serialNumber">
                                 <span className="label-text">Product Serial</span>
-                            </Form.Label>
-                            <Form.Control
+                            </label>
+                            <input
                                 id="serialNumber"
                                 type="text"
                                 value={serialNumber}
-                                onChange={(event) => {
-                                    setSerialNumber(event.target.value);
-                                }}
+                                onChange={(event) => setSerialNumber(event.target.value)}
                                 placeholder="Product Serial"
                                 className="input input-bordered"
                                 required
                             />
-                            <Form.Text className="text-muted">
+                            <div className="text-muted">
                                 {serialNumberError && (
                                     <div className="text-danger">{serialNumberError}</div>
                                 )}
-                            </Form.Text>
-                        </Form.Group>
-                        <Form.Group className="form-control">
-                            <Form.Label className="label">
+                            </div>
+                        </div>
+                        <div className="form-control">
+                            <label className="label" htmlFor="name">
                                 <span className="label-text">Product Name</span>
-                            </Form.Label>
-                            <Form.Control
+                            </label>
+                            <input
                                 id="name"
                                 type="text"
                                 value={name}
-                                onChange={(event) => {
-                                    setName(event.target.value);
-                                }}
+                                onChange={(event) => setName(event.target.value)}
                                 placeholder="Product Name"
                                 className="input input-bordered"
                                 required
                             />
-                            <Form.Text className="text-muted">
+                            <div className="text-muted">
                                 {nameError && <div className="text-danger">{nameError}</div>}
-                            </Form.Text>
-                        </Form.Group>
-                        <Form.Group className="form-control">
-                            <Form.Label className="label">
+                            </div>
+                        </div>
+                        <div className="form-control">
+                            <label className="label" htmlFor="price">
                                 <span className="label-text">Price</span>
-                            </Form.Label>
-                            <Form.Control
+                            </label>
+                            <input
                                 id="price"
                                 type="text" // You can use type="number" for numeric input
                                 value={price}
-                                onChange={(event) => {
-                                    setPrice(event.target.value);
-                                }}
+                                onChange={(event) => setPrice(event.target.value)}
                                 placeholder="Price"
                                 className="input input-bordered"
                                 required
                             />
-                            <Form.Text className="text-muted">
+                            <div className="text-muted">
                                 {priceError && <div className="text-danger">{priceError}</div>}
-                            </Form.Text>
-                        </Form.Group>
-                        <Form.Group className="form-control">
-                            <Form.Label className="label">
+                            </div>
+                        </div>
+                        <div className="form-control">
+                            <label className="label" htmlFor="description">
                                 <span className="label-text">Description</span>
-                            </Form.Label>
-                            <Form.Control
+                            </label>
+                            <textarea
                                 id="description"
-                                as="textarea"
                                 rows={3}
                                 value={description}
-                                onChange={(event) => {
-                                    setDescription(event.target.value);
-                                }}
+                                onChange={(event) => setDescription(event.target.value)}
                                 placeholder="Description"
                                 className="input input-bordered"
                                 required
                             />
-                            <Form.Text className="text-muted">
+                            <div className="text-muted">
                                 {descriptionError && (
                                     <div className="text-danger">{descriptionError}</div>
                                 )}
-                            </Form.Text>
-                        </Form.Group>
-                        <Form.Group className="form-control mt-6">
-                            <Button variant="primary" type="submit">
+                            </div>
+                        </div>
+                        <div className="form-control mt-6">
+                            <button type="submit" className="btn btn-primary">
                                 Add Product
-                            </Button>
-                        </Form.Group>
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>
