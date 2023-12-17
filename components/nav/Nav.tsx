@@ -17,6 +17,14 @@ const Nav: React.FC = () => {
         router.push('/login');
     };
 
+    const handleSignUp = () => {
+        sessionStorage.removeItem('token');
+        sessionStorage.removeItem('user');
+        sessionStorage.removeItem('cart');
+        setUser(null);
+        router.push('/signup');
+    };
+
     const handleCartCount = () => {
         const storedCart: { product: Product; quantity: number }[] =
             JSON.parse(sessionStorage.getItem('cart')) || [];
@@ -249,7 +257,7 @@ const Nav: React.FC = () => {
                     {user ? 'Logout' : 'Login'}
                 </button>
                 {!user && (
-                    <button role="button" className="btn btn-ghost btn-sm" onClick={handleLogOut}>
+                    <button role="button" className="btn btn-ghost btn-sm" onClick={handleSignUp}>
                         Signup
                     </button>
                 )}
