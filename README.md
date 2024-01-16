@@ -4,4 +4,4 @@ This repository contains the front end for our project, hosted on Azure Static W
 
 ## Usage
 
-Visit the provided link to access the hosted website: [https://black-flower-0ca1a4b03.4.azurestaticapps.net/](https://black-flower-0ca1a4b03.4.azurestaticapps.net/) 
+Visit this [link](https://green-bay-0bd5bbb03.4.azurestaticapps.net/) to access the hosted website.
